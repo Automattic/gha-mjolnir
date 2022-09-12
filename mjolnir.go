@@ -19,6 +19,8 @@ var (
 
 // closeRelatedIssues Closes issues listed in the PR description.
 func closeRelatedIssues(ctx context.Context, client *github.Client, owner string, repositoryName string, pr *github.PullRequest, dryRun bool) error {
+	log.Printf("Processing PR #%d targeting %s", pr.GetNumber(), pr.Base.GetRef())
+
 	issueNumbers := parseIssueFixes(pr.GetBody())
 
 	repo, _, err := client.Repositories.Get(ctx, owner, repositoryName)

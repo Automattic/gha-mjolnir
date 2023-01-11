@@ -3,7 +3,7 @@ name: Go Matrix
 on:
   push:
     branches:
-      - master
+      - trunk
   pull_request:
 
 jobs:
